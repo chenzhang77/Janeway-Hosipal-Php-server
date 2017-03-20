@@ -1,0 +1,13 @@
+<?php
+error_reporting( E_ALL & ~E_DEPRECATED & ~E_NOTICE );
+if(!mysql_connect("winemocolnet.ipagemysql.com","janeway","janeway_wine22"))
+{
+	die('oops connection problem ! --> '.mysql_error());
+	echo 'error 1';
+}
+if(!mysql_select_db("janeway"))
+{
+	die('oops database selection problem ! --> '.mysql_error());
+	echo 'error 2';
+}
+?>
