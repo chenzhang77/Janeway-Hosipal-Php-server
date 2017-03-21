@@ -19,7 +19,10 @@ if(isset($_POST['submit']))
 {
 	$title =  $_POST['title'];
 	$detail =  $_POST['detail'];
-	
+	$detail = preg_replace('/^[ \t]*[\r\n]+/m', '', $detail);
+	$detail = ltrim($detail);
+	$detail = preg_replace('/^\s+|\s+$/m', '', $detail);
+	//$detail = trim($detail," ");
 		$filepath="";
 		$target_dir = "uploads/";
 		
@@ -145,10 +148,10 @@ if(isset($_POST['submit']))
 
 <div class="container">
 <h1>All information Table</h1>
-<p>(Some descriptions here) Through the powers of <strong>contenteditable</strong> and some simple jQuery you can easily create a custom editable table. No need for a robust JavaScript library anymore these days.</p>
+<p>(Some descriptions here: Sample ->) Through the powers of <strong>contenteditable</strong> and some simple jQuery you can easily create a custom editable table. No need for a robust JavaScript library anymore these days.</p>
 
 <ul>
-<li>(Some descriptions here) An editable table that exports a hash array. Dynamically compiles rows from headers</li>
+<li>(Some descriptions here Sample ->) An editable table that exports a hash array. Dynamically compiles rows from headers</li>
 </ul>
 
 
@@ -227,7 +230,7 @@ if(isset($_POST['submit']))
 							
 					<div class="row"  >
 						<div class="col-xs-6  col-md-offset-3">
-						 <textarea style="height: 250px;" class="form-control" name="detail" placeholder="Detail 2" required ></textarea>
+						 <textarea style="height: 250px;" class="form-control" name="detail" placeholder="Detail" required ></textarea>
 						</div>
 					</div>
 	<!--	
